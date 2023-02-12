@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0d6ecc1b-0fe0-492f-9765-ddcfb42da657" name="Caracao">
+        <fileTransfer rootFolder="/home/e/einimpjd" accessType="SFTP" host="einimpjd.beget.tech" port="22" sshConfigId="276e1365-b38e-4e70-82a4-eef22c1f3abe" sshConfig="einimpjd@einimpjd.beget.tech:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
