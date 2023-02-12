@@ -119,20 +119,28 @@ function conditionally_show_hide_billing_custom_field()
     endif;
 }
 
-add_action( 'woocommerce_checkout_process', 'bbloomer_matching_email_addresses' );
+add_filter('flatsome_lightbox_close_btn_inside', '__return_true');
 
-function bbloomer_matching_email_addresses() {
+add_action('woocommerce_checkout_process', 'bbloomer_matching_email_addresses');
+
+function bbloomer_matching_email_addresses()
+{
     $poleInn = $_POST['inn'];
     $poleTip = $_POST['tip-pokupatelya'];
 
-    if($poleTip=='') return;
+    if ($poleTip == '') return;
 
-    if ( $poleTip != 'Физическое лицо' && $poleInn == '' ) {
+    if ($poleTip != 'Физическое лицо' && $poleInn == '') {
 
-        wc_add_notice( '<strong>Заполните пожалуйста поля:</strong> ИНН и Название компании', 'error' );
+        wc_add_notice('<strong>Заполните пожалуйста поля:</strong> ИНН и Название компании', 'error');
     }
 }
 
-add_action('woocommerce_share', function (){
-    echo 1;
-});
+add_action('woocommerce_single_product_summary', function () {
+    global $product;
+
+    if ($product->get_price()) {
+        return false;
+    }
+    echo do_shortcode('[button text="Запрос оптовой цены" link="#test"][lightbox id="test" width="600px" padding="20px"][contact-form-7 id="314" title="Запрос оптовой цены"][/lightbox]');
+}, 31);
