@@ -142,5 +142,7 @@ add_action('woocommerce_single_product_summary', function () {
     if ($product->get_price()) {
         return false;
     }
+    print '<hr><strong>упаковка - джутовые/сизалевые мешки по 60 кг</strong><hr>';
+
     echo do_shortcode('[button text="Запрос оптовой цены" link="#test"][lightbox id="test" width="600px" padding="20px"][contact-form-7 id="314" title="Запрос оптовой цены"][/lightbox]');
 }, 31);
